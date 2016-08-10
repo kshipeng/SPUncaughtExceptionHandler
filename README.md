@@ -1,0 +1,2 @@
+# SPUncaughtExceptionHandler
+APP闪退时，由用户决定是否继续。宝宝再也不用担心APP闪退了
