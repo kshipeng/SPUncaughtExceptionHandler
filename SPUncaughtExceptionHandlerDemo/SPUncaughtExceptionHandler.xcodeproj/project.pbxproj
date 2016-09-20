@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2190C91D90F830009994CF /* SPUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2190C81D90F830009994CF /* SPUncaughtExceptionHandler.m */; };
 		3D60C68D1D5B2A0B000BC6BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C68C1D5B2A0B000BC6BA /* main.m */; };
 		3D60C6901D5B2A0B000BC6BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C68F1D5B2A0B000BC6BA /* AppDelegate.m */; };
 		3D60C6931D5B2A0B000BC6BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C6921D5B2A0B000BC6BA /* ViewController.m */; };
 		3D60C6961D5B2A0B000BC6BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D60C6941D5B2A0B000BC6BA /* Main.storyboard */; };
 		3D60C6981D5B2A0B000BC6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D60C6971D5B2A0B000BC6BA /* Assets.xcassets */; };
 		3D60C69B1D5B2A0B000BC6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D60C6991D5B2A0B000BC6BA /* LaunchScreen.storyboard */; };
-		3D60C6A51D5B2A39000BC6BA /* SPUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C6A41D5B2A39000BC6BA /* SPUncaughtExceptionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D2190C71D90F830009994CF /* SPUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		3D2190C81D90F830009994CF /* SPUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		3D60C6881D5B2A0B000BC6BA /* SPUncaughtExceptionHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPUncaughtExceptionHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D60C68C1D5B2A0B000BC6BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D60C68E1D5B2A0B000BC6BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,8 +29,6 @@
 		3D60C6971D5B2A0B000BC6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D60C69A1D5B2A0B000BC6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D60C69C1D5B2A0B000BC6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D60C6A31D5B2A39000BC6BA /* SPUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUncaughtExceptionHandler.h; sourceTree = "<group>"; };
-		3D60C6A41D5B2A39000BC6BA /* SPUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +42,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D2190C61D90F830009994CF /* SPUncaughtExceptionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				3D2190C71D90F830009994CF /* SPUncaughtExceptionHandler.h */,
+				3D2190C81D90F830009994CF /* SPUncaughtExceptionHandler.m */,
+			);
+			name = SPUncaughtExceptionHandler;
+			path = ../../SPUncaughtExceptionHandler;
+			sourceTree = "<group>";
+		};
 		3D60C67F1D5B2A0B000BC6BA = {
 			isa = PBXGroup;
 			children = (
@@ -61,7 +71,7 @@
 		3D60C68A1D5B2A0B000BC6BA /* SPUncaughtExceptionHandler */ = {
 			isa = PBXGroup;
 			children = (
-				3D60C6A21D5B2A19000BC6BA /* 闪退提示 */,
+				3D2190C61D90F830009994CF /* SPUncaughtExceptionHandler */,
 				3D60C68E1D5B2A0B000BC6BA /* AppDelegate.h */,
 				3D60C68F1D5B2A0B000BC6BA /* AppDelegate.m */,
 				3D60C6911D5B2A0B000BC6BA /* ViewController.h */,
@@ -81,15 +91,6 @@
 				3D60C68C1D5B2A0B000BC6BA /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3D60C6A21D5B2A19000BC6BA /* 闪退提示 */ = {
-			isa = PBXGroup;
-			children = (
-				3D60C6A31D5B2A39000BC6BA /* SPUncaughtExceptionHandler.h */,
-				3D60C6A41D5B2A39000BC6BA /* SPUncaughtExceptionHandler.m */,
-			);
-			name = "闪退提示";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,7 +166,7 @@
 			files = (
 				3D60C6931D5B2A0B000BC6BA /* ViewController.m in Sources */,
 				3D60C6901D5B2A0B000BC6BA /* AppDelegate.m in Sources */,
-				3D60C6A51D5B2A39000BC6BA /* SPUncaughtExceptionHandler.m in Sources */,
+				3D2190C91D90F830009994CF /* SPUncaughtExceptionHandler.m in Sources */,
 				3D60C68D1D5B2A0B000BC6BA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
