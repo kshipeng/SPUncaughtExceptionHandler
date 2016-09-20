@@ -25,7 +25,7 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     char **strs = backtrace_symbols(callstack, frames);
     int i;
     NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
-    for (i = UncaughtExceptionHandlerSkipAddressCount; i < UncaughtExceptionHandlerSkipAddressCount +          UncaughtExceptionHandlerReportAddressCount; i++) {
+    for (i = UncaughtExceptionHandlerSkipAddressCount; i < UncaughtExceptionHandlerSkipAddressCount + UncaughtExceptionHandlerReportAddressCount; i++) {
         [backtrace addObject:[NSString stringWithUTF8String:strs[i]]];
     }
     free(strs);
@@ -46,10 +46,10 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 }
 - (void)handleException:(NSException *)exception {
     [self validateAndSaveCriticalApplicationData];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"抱歉，程序出现了异常", nil) message:[NSString stringWithFormat:NSLocalizedString(                                                           @"如果点击继续，程序有可能会出现其他的问题，建议您还是点击退出按钮并重新打开\n\n"                                                            @"异常原因如下:\n%@\n%@", nil), [exception reason], [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]] delegate:self cancelButtonTitle:NSLocalizedString(@"退出", nil) otherButtonTitles:NSLocalizedString(@"继续", nil), nil];//    UIAlertView *alert =//    [[UIAlertView alloc]//     initWithTitle:@"抱歉，程序出现了异常"//     message:[NSString stringWithFormat:@"如果点击继续，程序有可能会出现其他的问题，建议您还是点击退出按钮并重新打开\n\n"//                                                          @"异常原因如下:\n%@\n%@",//              [exception reason],//              [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]]//     delegate:self//     cancelButtonTitle:@"退出"//     otherButtonTitles:@"继续", nil];//
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"抱歉，程序出现了异常", nil) message:[NSString stringWithFormat:NSLocalizedString(@"如果点击继续，程序有可能会出现其他的问题，建议您还是点击退出按钮并重新打开\n\n" @"异常原因如下:\n%@\n%@", nil), [exception reason], [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]] delegate:self cancelButtonTitle:NSLocalizedString(@"退出", nil) otherButtonTitles:NSLocalizedString(@"继续", nil), nil];
+    //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"抱歉，程序出现了异常" message:[NSString stringWithFormat:@"如果点击继续，程序有可能会出现其他的问题，建议您还是点击退出按钮并重新打开\n\n" @"异常原因如下:\n%@\n%@", [exception reason], [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]] delegate:self cancelButtonTitle:@"退出" otherButtonTitles:@"继续", nil];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [alert show];//
+        [alert show];
     });
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
@@ -82,7 +82,7 @@ void HandleException(NSException *exception) {
     NSArray *callStack = [SPUncaughtExceptionHandler backtrace];
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[exception userInfo]];
     [userInfo setObject:callStack forKey:UncaughtExceptionHandlerAddressesKey];
-    [[[SPUncaughtExceptionHandler alloc] init] performSelectorOnMainThread:@selector(handleException:)      withObject: [NSException exceptionWithName:[exception name] reason:[exception reason]       userInfo:userInfo] waitUntilDone:YES];
+    [[[SPUncaughtExceptionHandler alloc] init] performSelectorOnMainThread:@selector(handleException:) withObject: [NSException exceptionWithName:[exception name] reason:[exception reason] userInfo:userInfo] waitUntilDone:YES];
 }
 void SignalHandler(int signal) {
     int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
@@ -92,7 +92,7 @@ void SignalHandler(int signal) {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:UncaughtExceptionHandlerSignalKey];
     NSArray *callStack = [SPUncaughtExceptionHandler backtrace];
     [userInfo setObject:callStack forKey:UncaughtExceptionHandlerAddressesKey];
-    [[[SPUncaughtExceptionHandler alloc] init] performSelectorOnMainThread:@selector(handleException:)      withObject: [NSException exceptionWithName:UncaughtExceptionHandlerSignalExceptionName       reason: [NSString stringWithFormat: NSLocalizedString(@"Signal %d was raised.", nil),        signal] userInfo: [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:UncaughtExceptionHandlerSignalKey]] waitUntilDone:YES];
+    [[[SPUncaughtExceptionHandler alloc] init] performSelectorOnMainThread:@selector(handleException:) withObject: [NSException exceptionWithName:UncaughtExceptionHandlerSignalExceptionName reason: [NSString stringWithFormat: NSLocalizedString(@"Signal %d was raised.", nil), signal] userInfo: [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:UncaughtExceptionHandlerSignalKey]] waitUntilDone:YES];
 }
 void InstallUncaughtExceptionHandler(void) {
     NSSetUncaughtExceptionHandler(&HandleException);
@@ -103,5 +103,3 @@ void InstallUncaughtExceptionHandler(void) {
     signal(SIGBUS, SignalHandler);
     signal(SIGPIPE, SignalHandler);
 }
-
-
