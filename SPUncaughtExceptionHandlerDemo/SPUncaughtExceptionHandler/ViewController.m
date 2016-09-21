@@ -17,15 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(100, 200, 60, 60);
+    btn.frame = CGRectMake(100, 200, 130, 60);
+    [btn setTitle:@"点我试试😀" forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor redColor];
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     // Do any additional setup after loading the view, typically from a nib.
 }
-- (void)btnAction:(UIButton *)btn {
-    
-}
+//- (void)btnAction:(UIButton *)btn {
+//    
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
