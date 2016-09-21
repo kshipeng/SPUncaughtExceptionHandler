@@ -23,7 +23,9 @@
     [self.view addSubview:btn];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+- (void)btnAction:(UIButton *)btn {
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
