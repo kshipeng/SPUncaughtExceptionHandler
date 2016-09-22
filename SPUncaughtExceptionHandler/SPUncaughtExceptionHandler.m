@@ -21,13 +21,13 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
 @interface SPUncaughtExceptionHandler ()
 {
-    BOOL _showInfor;
     NSString *_message_my;
     NSString *_message_alert;
     NSString *_message_exception;
     NSString *_title_alert;
     void (^action)(NSString *msg);
 }
+@property (nonatomic, assign) BOOL showInfor;
 @end
 
 @implementation SPUncaughtExceptionHandler
@@ -36,6 +36,7 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         single = [[self alloc]init];
+        single.showInfor = YES;
     });
     return single;
 }
