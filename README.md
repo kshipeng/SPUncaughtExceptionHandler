@@ -15,8 +15,8 @@ APP闪退时，由用户决定是否继续。宝宝再也不用担心APP闪退�
 
 3.采用“链式编程”实现Alert的一些自定义，详情请查看demo。
 
+4.现已添加cocoapods支持: pod 'SPUncaughtExceptionHandler', '~> 0.0.1'
+
 只要整个程序有任何地方崩溃，它都能够捕捉到：（然后你在任何一个文件中写一个会导致程序崩溃的方法，比如给一个Button添加方法，但是并没有实现方法）
 
-现已添加cocoapods支持: pod 'SPUncaughtExceptionHandler', '~> 0.0.1'
-
-不要在debug环境下（会出现只拦截一次的情况）测试。因为系统的debug会优先去拦截。要运行一次后，关闭debug状态。即直接点击我们在模拟器或真机上build的app去运行。
+⚠️注：不要在debug环境下（会出现只拦截一次的情况）测试。因为系统的debug会优先去拦截。要运行一次后，关闭debug状态。即直接点击我们在模拟器或真机上build的app去运行。
