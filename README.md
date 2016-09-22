@@ -4,7 +4,7 @@ APP闪退时，由用户决定是否继续。宝宝再也不用担心APP闪退�
 
 1.导入头文件  #import "SPUncaughtExceptionHandler.h"
 
-2.在Appdelegate里面只需调用捕捉异常类的一个方法如下。
+2.在Appdelegate里面只需调用捕捉异常类的一个方法如下:
 
 -(BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
@@ -12,6 +12,8 @@ APP闪退时，由用户决定是否继续。宝宝再也不用担心APP闪退�
 
     return YES; 
 }
+
+3.采用“链式编程”实现Alert的一些自定义，详情请查看demo。
 
 只要整个程序有任何地方崩溃，它都能够捕捉到：（然后你在任何一个文件中写一个会导致程序崩溃的方法，比如给一个Button添加方法，但是并没有实现方法）
 

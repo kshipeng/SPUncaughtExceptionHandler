@@ -17,9 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    /*
+     默认样式
     InstallUncaughtExceptionHandler();
-
+    */
+    InstallUncaughtExceptionHandler()/*后面的是一些自定义设置*/.showExceptionInfor(NO).didClick(^(NSString *ExceptionMessage){
+        //点击后的处理 比如将崩溃信息上传到服务器
+        NSLog(@"%@",ExceptionMessage);
+    }).message(@"连式编程自定义，如果需要自定义message，须将showExceptionInfor设置为NO").title(@"抱歉，程序出现了异常，请联系我们");
     return YES;
 }
 

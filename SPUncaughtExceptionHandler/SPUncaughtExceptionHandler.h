@@ -12,8 +12,12 @@
 {
     BOOL dismissed;
 }
+@property (nonatomic, copy) SPUncaughtExceptionHandler*(^showExceptionInfor)(BOOL yesOrNo);
+@property (nonatomic, copy) SPUncaughtExceptionHandler*(^message)(NSString *message);
+@property (nonatomic, copy) SPUncaughtExceptionHandler*(^didClick)(void (^click)(NSString *message));
+@property (nonatomic, copy) SPUncaughtExceptionHandler*(^title)(NSString *title);
 void HandleException(NSException *exception);
 void SignalHandler(int signal);
-void InstallUncaughtExceptionHandler(void);
-
+SPUncaughtExceptionHandler* InstallUncaughtExceptionHandler(void);
++ (instancetype)shareInstance;
 @end
