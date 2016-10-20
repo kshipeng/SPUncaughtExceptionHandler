@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D2190C91D90F830009994CF /* SPUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2190C81D90F830009994CF /* SPUncaughtExceptionHandler.m */; };
-		3D60C68D1D5B2A0B000BC6BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C68C1D5B2A0B000BC6BA /* main.m */; };
-		3D60C6901D5B2A0B000BC6BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C68F1D5B2A0B000BC6BA /* AppDelegate.m */; };
-		3D60C6931D5B2A0B000BC6BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D60C6921D5B2A0B000BC6BA /* ViewController.m */; };
-		3D60C6961D5B2A0B000BC6BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D60C6941D5B2A0B000BC6BA /* Main.storyboard */; };
-		3D60C6981D5B2A0B000BC6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D60C6971D5B2A0B000BC6BA /* Assets.xcassets */; };
-		3D60C69B1D5B2A0B000BC6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D60C6991D5B2A0B000BC6BA /* LaunchScreen.storyboard */; };
+		3DD1ACDB1DB8AE94000AD5CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1ACCE1DB8AE93000AD5CD /* AppDelegate.m */; };
+		3DD1ACDC1DB8AE94000AD5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD1ACCF1DB8AE93000AD5CD /* Assets.xcassets */; };
+		3DD1ACDD1DB8AE94000AD5CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD1ACD01DB8AE93000AD5CD /* LaunchScreen.storyboard */; };
+		3DD1ACDE1DB8AE94000AD5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD1ACD21DB8AE93000AD5CD /* Main.storyboard */; };
+		3DD1ACE01DB8AE94000AD5CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1ACD51DB8AE93000AD5CD /* main.m */; };
+		3DD1ACE11DB8AE94000AD5CD /* SPUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1ACD81DB8AE93000AD5CD /* SPUncaughtExceptionHandler.m */; };
+		3DD1ACE21DB8AE94000AD5CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1ACDA1DB8AE94000AD5CD /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D2190C71D90F830009994CF /* SPUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUncaughtExceptionHandler.h; sourceTree = "<group>"; };
-		3D2190C81D90F830009994CF /* SPUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		3D60C6881D5B2A0B000BC6BA /* SPUncaughtExceptionHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPUncaughtExceptionHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D60C68C1D5B2A0B000BC6BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D60C68E1D5B2A0B000BC6BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3D60C68F1D5B2A0B000BC6BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D60C6911D5B2A0B000BC6BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D60C6921D5B2A0B000BC6BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3D60C6951D5B2A0B000BC6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3D60C6971D5B2A0B000BC6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3D60C69A1D5B2A0B000BC6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3D60C69C1D5B2A0B000BC6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DD1ACCD1DB8AE93000AD5CD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3DD1ACCE1DB8AE93000AD5CD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3DD1ACCF1DB8AE93000AD5CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DD1ACD11DB8AE93000AD5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DD1ACD31DB8AE93000AD5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DD1ACD51DB8AE93000AD5CD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3DD1ACD71DB8AE93000AD5CD /* SPUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		3DD1ACD81DB8AE93000AD5CD /* SPUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		3DD1ACD91DB8AE93000AD5CD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3DD1ACDA1DB8AE94000AD5CD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3DD1ACE31DB8AF54000AD5CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,20 +42,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D2190C61D90F830009994CF /* SPUncaughtExceptionHandler */ = {
-			isa = PBXGroup;
-			children = (
-				3D2190C71D90F830009994CF /* SPUncaughtExceptionHandler.h */,
-				3D2190C81D90F830009994CF /* SPUncaughtExceptionHandler.m */,
-			);
-			name = SPUncaughtExceptionHandler;
-			path = ../../SPUncaughtExceptionHandler;
-			sourceTree = "<group>";
-		};
 		3D60C67F1D5B2A0B000BC6BA = {
 			isa = PBXGroup;
 			children = (
-				3D60C68A1D5B2A0B000BC6BA /* SPUncaughtExceptionHandler */,
+				3DD1ACCC1DB8AE93000AD5CD /* SPUncaughtExceptionHandler */,
 				3D60C6891D5B2A0B000BC6BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,29 +58,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D60C68A1D5B2A0B000BC6BA /* SPUncaughtExceptionHandler */ = {
+		3DD1ACCC1DB8AE93000AD5CD /* SPUncaughtExceptionHandler */ = {
 			isa = PBXGroup;
 			children = (
-				3D2190C61D90F830009994CF /* SPUncaughtExceptionHandler */,
-				3D60C68E1D5B2A0B000BC6BA /* AppDelegate.h */,
-				3D60C68F1D5B2A0B000BC6BA /* AppDelegate.m */,
-				3D60C6911D5B2A0B000BC6BA /* ViewController.h */,
-				3D60C6921D5B2A0B000BC6BA /* ViewController.m */,
-				3D60C6941D5B2A0B000BC6BA /* Main.storyboard */,
-				3D60C6971D5B2A0B000BC6BA /* Assets.xcassets */,
-				3D60C6991D5B2A0B000BC6BA /* LaunchScreen.storyboard */,
-				3D60C69C1D5B2A0B000BC6BA /* Info.plist */,
-				3D60C68B1D5B2A0B000BC6BA /* Supporting Files */,
+				3DD1ACD61DB8AE93000AD5CD /* SPUncaughtExceptionHandler */,
+				3DD1ACCD1DB8AE93000AD5CD /* AppDelegate.h */,
+				3DD1ACCE1DB8AE93000AD5CD /* AppDelegate.m */,
+				3DD1ACCF1DB8AE93000AD5CD /* Assets.xcassets */,
+				3DD1ACD01DB8AE93000AD5CD /* LaunchScreen.storyboard */,
+				3DD1ACD21DB8AE93000AD5CD /* Main.storyboard */,
+				3DD1ACD51DB8AE93000AD5CD /* main.m */,
+				3DD1ACE31DB8AF54000AD5CD /* Info.plist */,
+				3DD1ACD91DB8AE93000AD5CD /* ViewController.h */,
+				3DD1ACDA1DB8AE94000AD5CD /* ViewController.m */,
 			);
 			path = SPUncaughtExceptionHandler;
 			sourceTree = "<group>";
 		};
-		3D60C68B1D5B2A0B000BC6BA /* Supporting Files */ = {
+		3DD1ACD61DB8AE93000AD5CD /* SPUncaughtExceptionHandler */ = {
 			isa = PBXGroup;
 			children = (
-				3D60C68C1D5B2A0B000BC6BA /* main.m */,
+				3DD1ACD71DB8AE93000AD5CD /* SPUncaughtExceptionHandler.h */,
+				3DD1ACD81DB8AE93000AD5CD /* SPUncaughtExceptionHandler.m */,
 			);
-			name = "Supporting Files";
+			path = SPUncaughtExceptionHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +142,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D60C69B1D5B2A0B000BC6BA /* LaunchScreen.storyboard in Resources */,
-				3D60C6981D5B2A0B000BC6BA /* Assets.xcassets in Resources */,
-				3D60C6961D5B2A0B000BC6BA /* Main.storyboard in Resources */,
+				3DD1ACDE1DB8AE94000AD5CD /* Main.storyboard in Resources */,
+				3DD1ACDC1DB8AE94000AD5CD /* Assets.xcassets in Resources */,
+				3DD1ACDD1DB8AE94000AD5CD /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,30 +155,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D60C6931D5B2A0B000BC6BA /* ViewController.m in Sources */,
-				3D60C6901D5B2A0B000BC6BA /* AppDelegate.m in Sources */,
-				3D2190C91D90F830009994CF /* SPUncaughtExceptionHandler.m in Sources */,
-				3D60C68D1D5B2A0B000BC6BA /* main.m in Sources */,
+				3DD1ACE01DB8AE94000AD5CD /* main.m in Sources */,
+				3DD1ACDB1DB8AE94000AD5CD /* AppDelegate.m in Sources */,
+				3DD1ACE21DB8AE94000AD5CD /* ViewController.m in Sources */,
+				3DD1ACE11DB8AE94000AD5CD /* SPUncaughtExceptionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3D60C6941D5B2A0B000BC6BA /* Main.storyboard */ = {
+		3DD1ACD01DB8AE93000AD5CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D60C6951D5B2A0B000BC6BA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3D60C6991D5B2A0B000BC6BA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D60C69A1D5B2A0B000BC6BA /* Base */,
+				3DD1ACD11DB8AE93000AD5CD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3DD1ACD21DB8AE93000AD5CD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DD1ACD31DB8AE93000AD5CD /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
