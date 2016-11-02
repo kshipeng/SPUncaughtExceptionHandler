@@ -21,10 +21,20 @@
      默认样式
     InstallUncaughtExceptionHandler();
     */
-    InstallUncaughtExceptionHandler()/*后面的是一些自定义设置*/.showExceptionInfor(NO).didClick(^(NSString *ExceptionMessage){
-        //点击后的处理 比如将崩溃信息上传到服务器
+    InstallUncaughtExceptionHandler().showAlert(YES).logFileHandle(^(NSString *path) {
+        
+        //path：日志文件的路径，日志是一个名字为“ExceptionLog_sp”的“tex”文件
+        //也可用这种方法获得路径：[[SPUncaughtExceptionHandler shareInstance]exceptionFilePath]
+        //每次异常都会调用该block
+        
+        NSLog(@"%@",path);
+    }).showExceptionInfor(NO).didClick(^(NSString *ExceptionMessage){
+        
+        //点击（继续）后的处理，比如将崩溃信息上传到服务器，该字符串为：异常信息
         NSLog(@"%@",ExceptionMessage);
-    }).message(@"连式编程自定义，如果需要自定义message，须将showExceptionInfor设置为NO").title(@"抱歉，程序出现了异常，请联系我们");
+        
+    }).message(@"链式编程自定义，如果需要自定义message，须将showExceptionInfor设置为NO").title(@"抱歉，程序出现了异常，请联系我们");
+    
     return YES;
 }
 

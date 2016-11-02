@@ -4,14 +4,12 @@
 //
 //  Created by 康世朋 on 16/8/10.
 //  Copyright © 2016年 SP. All rights reserved.
+//  Demo地址:https://github.com/kshipeng/SPUncaughtExceptionHandler
 //
 
 #import <Foundation/Foundation.h>
 
 @interface SPUncaughtExceptionHandler : NSObject
-{
-    BOOL dismissed;
-}
 
 /**
  是否展示错误信息
@@ -32,8 +30,29 @@
  自定义Alert的title
  */
 @property (nonatomic, copy) SPUncaughtExceptionHandler*(^title)(NSString *title);
-void HandleException(NSException *exception);
-void SignalHandler(int signal);
+
+/**
+ 是否展示警告框
+ */
+@property (nonatomic, copy) SPUncaughtExceptionHandler*(^showAlert)(BOOL yesOrNo);
+
+/**
+ 对日志文件的后续处理
+ */
+@property (nonatomic, copy) SPUncaughtExceptionHandler*(^logFileHandle)(void(^logHandle)(NSString *exceptionLogFilePath));
+
+/**
+ 日志文件路径
+ */
+@property (nonatomic, retain, readonly) NSString *exceptionFilePath;
+
+/**
+ 创建一个异常捕获类的单例
+ */
++ (instancetype)shareInstance;
+
+//void HandleException(NSException *exception);
+//void SignalHandler(int signal);
 SPUncaughtExceptionHandler* InstallUncaughtExceptionHandler(void);
 
 @end
