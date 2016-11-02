@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SPUncaughtExceptionHandler"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "APP闪退时,由用户决定是否继续.宝宝再也不用担心APP闪退了."
 
   # This description is used to generate tags and improve search results.
