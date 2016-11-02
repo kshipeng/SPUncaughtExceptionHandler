@@ -4,6 +4,7 @@
 //
 //  Created by 康世朋 on 16/8/10.
 //  Copyright © 2016年 SP. All rights reserved.
+//  Demo地址:https://github.com/kshipeng/SPUncaughtExceptionHandler
 //
 
 #import "SPUncaughtExceptionHandler.h"
@@ -21,13 +22,17 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
 @interface SPUncaughtExceptionHandler ()
 {
+    BOOL dismissed;
     NSString *_message_my;
     NSString *_message_alert;
     NSString *_message_exception;
     NSString *_title_alert;
     void (^action)(NSString *msg);
+    void (^handleBlock)(NSString *path);
 }
 @property (nonatomic, assign) BOOL showInfor;
+@property (nonatomic, assign) BOOL show_alert;
+@property (nonatomic, retain) NSString *logFilePath;
 @end
 
 @implementation SPUncaughtExceptionHandler
@@ -37,6 +42,17 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     dispatch_once(&onceToken, ^{
         single = [[self alloc]init];
         single.showInfor = YES;
+        single.show_alert = YES;
+        // 1.获取Documents路径
+        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        // 2.创建文件路径
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"ExceptionLog_sp.txt"];
+        // 3.使用文件管理对象创建文件
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if (![fileManager fileExistsAtPath:filePath]) {
+            [fileManager createFileAtPath:filePath contents:[@">>>>>>>程序异常日志<<<<<<<<\n" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+        }
+        single.logFilePath = filePath;
     });
     return single;
 }
@@ -61,16 +77,26 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     if (anIndex == 0) {
         dismissed = YES;
     }else if (anIndex==1) {
-        NSLog(@"ssssssss");
-    }
-    if (action) {
-        action(_message_exception);
+        //继续
+        if (action) {
+            action(_message_exception);
+        }
     }
 }
-- (void)validateAndSaveCriticalApplicationData {
+- (void)validateAndSaveCriticalApplicationData:(NSException *)exception {
+    NSString *exceptionMessage = [NSString stringWithFormat:NSLocalizedString(@"\n********** %@ 异常原因如下: **********\n%@\n%@\n========== End ==========\n", nil), [self currentTimeString], [exception reason], [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]];
+    // 4.创建文件对接对象,文件对象此时针对文件，可读可写
+    NSFileHandle *handle = [NSFileHandle fileHandleForUpdatingAtPath:_logFilePath];
+    [handle seekToEndOfFile];
+    [handle writeData:[exceptionMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    [handle closeFile];
+    //NSLog(@"%@", filePath);
+    if (handleBlock) {
+        handleBlock(_logFilePath);
+    }
 }
 - (void)handleException:(NSException *)exception {
-    [self validateAndSaveCriticalApplicationData];
+    [self validateAndSaveCriticalApplicationData:exception];
     if (_showInfor) {
         _message_alert = [NSString stringWithFormat:NSLocalizedString(@"如果点击继续，程序有可能会出现其他的问题，建议您还是点击退出按钮并重新打开\n\n" @"异常原因如下:\n%@\n%@", nil), [exception reason], [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]];
     }else {
@@ -90,7 +116,11 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:titleStr message:_message_alert delegate:self cancelButtonTitle:NSLocalizedString(@"退出", nil) otherButtonTitles:NSLocalizedString(@"继续", nil), nil];
     //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"抱歉，程序出现了异常" message:[NSString stringWithFormat:@"如果点击继续，程序有可能会出现其他的问题，建议您还是点击退出按钮并重新打开\n\n" @"异常原因如下:\n%@\n%@", [exception reason], [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]] delegate:self cancelButtonTitle:@"退出" otherButtonTitles:@"继续", nil];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [alert show];
+        if (_show_alert) {
+            [alert show];
+        }else {
+            dismissed = YES;
+        }
     });
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
@@ -147,6 +177,35 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     };
 }
 - (void)setTitle:(SPUncaughtExceptionHandler *(^)(NSString *))title{}
+
+- (SPUncaughtExceptionHandler *(^)(void (^)(NSString *exceptionLogFilePath)))logFileHandle {
+    return ^(void (^logFileHandle)(NSString *exceptionLogFilePath)) {
+        handleBlock = logFileHandle;
+        return [SPUncaughtExceptionHandler shareInstance];
+    };
+}
+- (void)setLogFileHandle:(SPUncaughtExceptionHandler *(^)(void (^)(NSString *)))logFileHandle {};
+
+- (SPUncaughtExceptionHandler *(^)(BOOL yesOrNo))showAlert {
+    return ^(BOOL yesOrNo) {
+        _show_alert = yesOrNo;
+        return [SPUncaughtExceptionHandler shareInstance];
+    };
+}
+- (void)setShowAlert:(SPUncaughtExceptionHandler *(^)(BOOL))showAlert {};
+
+- (NSString *)exceptionFilePath {
+    return _logFilePath;
+}
+- (NSString *)currentTimeString {
+    //时间格式化
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //用[NSDate date]可以获取系统当前时间
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    return currentDateStr;
+}
 
 @end
 void HandleException(NSException *exception) {
