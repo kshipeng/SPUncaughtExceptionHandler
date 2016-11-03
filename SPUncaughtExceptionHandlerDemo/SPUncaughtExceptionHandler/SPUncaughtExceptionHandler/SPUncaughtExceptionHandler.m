@@ -35,6 +35,8 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 @property (nonatomic, retain) NSString *logFilePath;
 @end
 
+BOOL finish;
+
 @implementation SPUncaughtExceptionHandler
 + (instancetype)shareInstance {
     static SPUncaughtExceptionHandler *single = nil;
@@ -119,7 +121,9 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
         if (_show_alert) {
             [alert show];
         }else {
-            dismissed = YES;
+            if (finish) {
+                dismissed = YES;
+            }
         }
     });
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
@@ -237,4 +241,8 @@ SPUncaughtExceptionHandler* InstallUncaughtExceptionHandler(void) {
     signal(SIGBUS, SignalHandler);
     signal(SIGPIPE, SignalHandler);
     return [SPUncaughtExceptionHandler shareInstance];
+}
+
+void ExceptionHandlerFinishNotify() {
+    finish =YES;
 }

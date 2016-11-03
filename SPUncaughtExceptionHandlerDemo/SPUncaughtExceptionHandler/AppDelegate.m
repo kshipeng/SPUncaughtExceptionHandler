@@ -21,13 +21,19 @@
      默认样式
     InstallUncaughtExceptionHandler();
     */
-    InstallUncaughtExceptionHandler().showAlert(YES).logFileHandle(^(NSString *path) {
+    InstallUncaughtExceptionHandler().showAlert(NO).logFileHandle(^(NSString *path) {
         
-        //path：日志文件的路径，日志是一个名字为“ExceptionLog_sp”的“tex”文件
+        //path：日志文件的路径，日志是一个名字为“ExceptionLog_sp”的“txt”文件
         //也可用这种方法获得路径：[[SPUncaughtExceptionHandler shareInstance]exceptionFilePath]
         //每次异常都会调用该block
         
         NSLog(@"%@",path);
+        //模拟耗时操作
+        [NSThread sleepForTimeInterval:2.0];
+        
+        //处理完成后调用（如果不调用则程序不会退出）主要是为了处理耗时操作
+        ExceptionHandlerFinishNotify();
+        
     }).showExceptionInfor(NO).didClick(^(NSString *ExceptionMessage){
         
         //点击（继续）后的处理，比如将崩溃信息上传到服务器，该字符串为：异常信息

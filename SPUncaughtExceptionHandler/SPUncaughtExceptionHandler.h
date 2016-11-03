@@ -54,5 +54,5 @@
 //void HandleException(NSException *exception);
 //void SignalHandler(int signal);
 SPUncaughtExceptionHandler* InstallUncaughtExceptionHandler(void);
-
+void ExceptionHandlerFinishNotify();
 @end
