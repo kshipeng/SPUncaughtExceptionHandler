@@ -21,7 +21,7 @@
      默认样式
     InstallUncaughtExceptionHandler();
     */
-    InstallUncaughtExceptionHandler().showAlert(NO).logFileHandle(^(NSString *path) {
+    InstallUncaughtExceptionHandler().showAlert(YES).logFileHandle(^(NSString *path) {
         
         //path：日志文件的路径，日志是一个名字为“ExceptionLog_sp”的“txt”文件
         //也可用这种方法获得路径：[[SPUncaughtExceptionHandler shareInstance]exceptionFilePath]
